@@ -1,0 +1,19 @@
+
+
+[data-pawmark-shopping-filter="hide"] { display: none !important; }
+[data-pawmark-shopping-filter="dim"] :is(img.s-image, img.p13n-product-image, [data-testid="product-card-link"] picture img),
+[data-pawmark-shopping-filter="dim"] [data-component-type="s-product-image"] img {
+  opacity: .38 !important;
+  filter: grayscale(.8) !important;
+  transition: opacity 140ms ease;
+}
+[data-pawmark-shopping-filter="dim"]:not(:hover):not(:focus-within) :is(h2, [class*="p13n-sc-css-line-clamp"], .p13n-sc-truncate, p[id^="title-"]),
+[data-pawmark-shopping-filter="dim"]:not(:hover):not(:focus-within) h3 { color: #626962 !important; }
+[data-pawmark-shopping-filter="dim"]:hover :is(img.s-image, img.p13n-product-image, [data-testid="product-card-link"] picture img),
+[data-pawmark-shopping-filter="dim"]:focus-within :is(img.s-image, img.p13n-product-image, [data-testid="product-card-link"] picture img),
+[data-pawmark-shopping-filter="dim"]:hover [data-component-type="s-product-image"] img,
+[data-pawmark-shopping-filter="dim"]:focus-within [data-component-type="s-product-image"] img { opacity: 1 !important; filter: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  [data-pawmark-shopping-filter="dim"] :is(img.s-image, img.p13n-product-image, [data-testid="product-card-link"] picture img),
+  [data-pawmark-shopping-filter="dim"] [data-component-type="s-product-image"] img { transition: none; }
+}

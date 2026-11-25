@@ -1,0 +1,91 @@
+{
+  "manifest_version": 3,
+  "name": "Kindvue",
+  "version": "0.2.1",
+  "description": "Know better. Shop kinder. Vegan and cruelty-free evidence while you shop.",
+  "icons": {
+    "16": "icons/kindvue-16.png",
+    "32": "icons/kindvue-32.png",
+    "48": "icons/kindvue-48.png",
+    "128": "icons/kindvue-128.png"
+  },
+  "minimum_chrome_version": "116",
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; frame-ancestors 'none'"
+  },
+  "permissions": [
+    "storage",
+    "identity"
+  ],
+  "host_permissions": [
+    "https://kindvue.in/*",
+    "https://*.amazon.in/*",
+    "https://*.nykaa.com/*",
+    "https://*.flipkart.com/*",
+    "https://*.myntra.com/*",
+    "https://*.purplle.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icons/kindvue-16.png",
+      "32": "icons/kindvue-32.png"
+    },
+    "default_popup": "popup.html",
+    "default_title": "Kindvue"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.amazon.in/*",
+        "https://*.nykaa.com/*",
+        "https://*.flipkart.com/*",
+        "https://*.myntra.com/*",
+        "https://*.purplle.com/*"
+      ],
+      "js": [
+        "config.js",
+        "theme.js",
+        "shopping-assistance.js",
+        "request-lifecycle.js",
+        "ui-utils.js",
+        "panel-resize.js",
+        "save-icons.js",
+        "save-actions.js",
+        "platforms/identity-core.js",
+        "platforms/bundle-evidence.js",
+        "platforms/nykaa-lifecycle.js",
+        "platforms/index.js",
+        "platforms/amazon.js",
+        "platforms/nykaa.js",
+        "platforms/flipkart.js",
+        "platforms/myntra.js",
+        "platforms/purplle.js",
+        "shopping/amazon-cards.js",
+        "shopping/batch-contract.js",
+        "shopping/network-policy.js",
+        "shopping/analytics-contract.js",
+        "shopping/analytics.js",
+        "shopping/batch-queue.js",
+        "shopping/badge-renderer.js",
+        "shopping/off-control.js",
+        "shopping/filter-model.js",
+        "shopping/filter-controller.js",
+        "shopping/alternatives-contract.js",
+        "shopping/alternatives-queue.js",
+        "shopping/alternatives-controller.js",
+        "shopping/check-request-contract.js",
+        "shopping/check-request-controller.js",
+        "shopping/content.js",
+        "content.js"
+      ],
+      "css": [
+        "styles.css",
+        "shopping/filter-cards.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
